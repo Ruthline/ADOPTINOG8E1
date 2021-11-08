@@ -24,9 +24,9 @@
         android:id="@+id/navigationView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:menu="@menu/drawermenu"
-        app:headerLayout="@layout/header_drawer"
         android:layout_gravity="start"
-        android:fitsSystemWindows="true"/>
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/header_drawer"
+        app:menu="@menu/drawermenu" />
 
 </androidx.drawerlayout.widget.DrawerLayout>
