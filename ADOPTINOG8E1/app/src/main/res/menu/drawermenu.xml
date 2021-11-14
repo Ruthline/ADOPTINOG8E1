@@ -5,9 +5,11 @@
     android:title="Adopta">
 </item>
     <item
+        android:id="@+id/reportadosb"
+        android:title="Reportados"></item>
+    <item
         android:id="@+id/reportarb"
-        android:title="Reportar">
-    </item>
+        android:title="Reportar" />
     <item
         android:id="@+id/registrarb"
         android:title="Registrar Usuario"></item>

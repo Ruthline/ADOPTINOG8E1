@@ -11,11 +11,10 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.ImageView;
-import android.widget.ViewFlipper;
 
 import com.example.Adoptino.fragmentos.SignupTabFragment;
 import com.example.Adoptino.fragmentos.fragment_Sobrenosotros;
+import com.example.Adoptino.fragmentos.fragment_reportados;
 import com.example.Adoptino.fragmentos.fragment_reportar;
 import com.example.Adoptino.fragmentos.loginTabFragment;
 import com.example.Adoptino.fragmentos.mainfragment;
@@ -83,6 +82,13 @@ public class Main_activity extends AppCompatActivity implements NavigationView.O
             fragmentManager = getSupportFragmentManager();
             fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.mcontainer, new fragment_reportar());
+            fragmentTransaction.commit();
+        }
+        //abriendo el fragment reportados
+        if(item.getItemId() == R.id.reportadosb){
+            fragmentManager = getSupportFragmentManager();
+            fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.mcontainer, new fragment_reportados());
             fragmentTransaction.commit();
         }
         //abriendo el fragment registrar

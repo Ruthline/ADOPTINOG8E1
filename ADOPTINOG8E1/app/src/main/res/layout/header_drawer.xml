@@ -9,13 +9,20 @@
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
-        android:layout_height="130dp"
-        android:background="@color/cardview_dark_background"
+        android:layout_height="100dp"
+        android:background="@color/amarilloAdoptino"
         android:padding="10dp"
-        android:text="ADOPTINO"
         android:textColor="@color/white"
         android:textSize="30dp"
         android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="-92dp" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="193dp"
+        android:layout_height="83dp"
+        app:srcCompat="@drawable/adoptino"
+        tools:layout_editor_absoluteX="166dp"
+        tools:layout_editor_absoluteY="17dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
