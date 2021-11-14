@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<item
+    android:id="@+id/Adoptab"
+    android:title="Adopta">
+</item>
+    <item
+        android:id="@+id/reportarb"
+        android:title="Reportar">
+    </item>
+    <item
+        android:id="@+id/registrarb"
+        android:title="Registrar Usuario"></item>
+    <item
+        android:id="@+id/iniciosb"
+        android:title="Iniciar Sesion"></item>
+    <item
+        android:id="@+id/snb"
+        android:title="Sobre nosotros">
+    </item>
+</menu>
