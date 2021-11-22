@@ -75,7 +75,7 @@
         app:layout_constraintWidth_percent=".8" />
 
     <EditText
-        android:id="@+id/textnomdueño"
+        android:id="@+id/textelefono"
         android:layout_width="329dp"
         android:layout_height="44dp"
         android:layout_marginTop="272dp"
@@ -91,7 +91,7 @@
         app:layout_constraintWidth_percent=".8" />
 
     <EditText
-        android:id="@+id/textnommas2"
+        android:id="@+id/textnomdueño"
         android:layout_width="329dp"
         android:layout_height="44dp"
         android:layout_marginTop="216dp"
