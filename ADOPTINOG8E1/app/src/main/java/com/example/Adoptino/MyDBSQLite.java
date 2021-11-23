@@ -4,10 +4,12 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.example.Adoptino.fragmentos.fragment_reportar;
+
 public class MyDBSQLite extends  SQLiteOpenHelper {
 
-    public MyDBSQLite(Context context, String nomDB, SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, nomDB, factory, version);
+    public MyDBSQLite(fragment_reportar context, String nomDB, SQLiteDatabase.CursorFactory factory, int version) {
+        super(fragment_reportar, context, nomDB, factory, version);
     }
 
     @Override
