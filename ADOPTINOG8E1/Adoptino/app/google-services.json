@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1086054812552",
+    "project_id": "adoptino-99c65",
+    "storage_bucket": "adoptino-99c65.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1086054812552:android:7d749681e308cc44e4083d",
+        "android_client_info": {
+          "package_name": "com.LUIS.ProyectoAndroid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1086054812552-abeq7kadbv7vareirckhanb4psj9r46a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZJIG3lurXsLMtnN9Khg7t0Rggk0BLUmY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1086054812552-abeq7kadbv7vareirckhanb4psj9r46a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
