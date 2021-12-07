@@ -13,6 +13,7 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -30,13 +31,8 @@ import java.util.Objects;
 
 public class ReportarActivity extends AppCompatActivity {
 
+    ImageView imagen;
 
-        //todo lo de camara
-    ImageView picture;
-    ImageButton openCamera;
-
-    private static final int REQUEST_PERMISSION_CAMERA =100;
-    private static final int REQUEST_IMAGE_CAMERA =101;
 
     private TextInputEditText ti1, ti2;
     private EditText et1, et2, et3, et4;
@@ -52,25 +48,8 @@ public class ReportarActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         setContentView(R.layout.activity_reportar);
 
-        //Lo de camara
-        picture=findViewById(R.id.picture);
-        openCamera= findViewById(R.id.btnOpenCamera);
+        imagen =(ImageView) findViewById(R.id.imgPhoto);
 
-        openCamera.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-                    if(ActivityCompat.checkSelfPermission(ReportarActivity.this, Manifest.permission.CAMERA)== PackageManager.PERMISSION_GRANTED){
-                        goToCamera();
-                    }else{
-                        ActivityCompat.requestPermissions(ReportarActivity.this,new String[]{Manifest.permission.CAMERA},REQUEST_PERMISSION_CAMERA);
-                    }
-                }else {
-                    goToCamera();
-                }
-                }
-        });
-        //final de camara
         ti1 = (TextInputEditText) findViewById(R.id.nombremascota);
         ti2 = (TextInputEditText) findViewById(R.id.nombredueño);
         et1 = findViewById(R.id.editTextDate2);
@@ -84,37 +63,25 @@ public class ReportarActivity extends AppCompatActivity {
         //getParametros();
     }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,@NonNull int[]grantResults){
-        if (requestCode == REQUEST_PERMISSION_CAMERA){
-            if(permissions.length>0 && grantResults[0]==PackageManager.PERMISSION_GRANTED){
-                goToCamera();
-            }else{
-                Toast.makeText(this, "you need to enable permission",Toast.LENGTH_SHORT).show();
-            }
-        }
-        super.onRequestPermissionsResult(requestCode,permissions,grantResults);
+    public void onClick(View view) {
+        cargarImagen();
+    }
+
+    private void cargarImagen() {
+        Intent intent =new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        intent.setType("image/");
+        startActivityForResult(intent.createChooser(intent,"Seleccione la aplicación"),10);
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if(requestCode == REQUEST_IMAGE_CAMERA){
-            if (resultCode== Activity.RESULT_OK){
-                Bitmap bitmap= (Bitmap) data.getExtras().get("data");
-                picture.setImageBitmap(bitmap);
-                Log.i("TAG","Result=>"+bitmap);
-            }
+    protected void onActivityResult(int requestCode , int resultCode , @Nullable Intent data) {
+        super.onActivityResult(requestCode , resultCode , data);
+        if (resultCode==RESULT_OK){
+            Uri path= data.getData();
+            imagen.setImageURI(path);
         }
-        super.onActivityResult(requestCode, resultCode, data);
     }
 
-    //para camera
-    private void goToCamera(){
-        Intent camaraIntent=new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        if(camaraIntent.resolveActivity(getPackageManager())!=null){
-            startActivityForResult(camaraIntent,REQUEST_IMAGE_CAMERA);
-        }
-    }
     public void goToActivityMain(View view) {
         Intent newIntent = new Intent(this, MainActivity.class);
         newIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

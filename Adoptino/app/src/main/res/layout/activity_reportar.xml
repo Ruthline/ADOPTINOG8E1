@@ -33,17 +33,17 @@
             android:background="@color/negroAdoptino">
 
             <ImageButton
-                android:id="@+id/btnOpenCamera"
+                android:id="@+id/btnCargar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/img"
+                android:onClick="onClick"
                 android:scaleType="centerInside"
-                android:src="@android:drawable/ic_menu_camera" />
-            // android:src="@drawable/ic_camera"
+                android:src="@mipmap/ic_upload" />
 
 
             <ImageView
-                android:id="@+id/picture"
+                android:id="@+id/imgPhoto"
                 android:layout_width="125dp"
                 android:layout_height="115dp"
                 android:contentDescription="@string/img"
