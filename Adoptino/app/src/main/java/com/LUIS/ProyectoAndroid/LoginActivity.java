@@ -1,5 +1,6 @@
 package com.LUIS.ProyectoAndroid;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -21,6 +22,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+
 public class LoginActivity extends AppCompatActivity {
     private TextView t1,t2;
     private ImageView iv1;
@@ -28,6 +34,9 @@ public class LoginActivity extends AppCompatActivity {
     private MyDBSQLiteHelper admin;
     private SQLiteDatabase db;
     private Cursor filas;
+    private FirebaseAuth fa;
+    private String correo="";
+    private String pass="";
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -37,6 +46,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        fa = FirebaseAuth.getInstance();
         setContentView(R.layout.activity_login);
         //Ocultar ActionBar
         getSupportActionBar().hide();
@@ -69,26 +79,34 @@ public class LoginActivity extends AppCompatActivity {
         iv1 = findViewById(R.id.imageView);
     }
 
+    public void login(){
+         fa.signInWithEmailAndPassword(correo,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+             @Override
+             public void onComplete(@NonNull Task<AuthResult> task) {
+                 if(task.isSuccessful()){
+                     db = admin.getReadableDatabase();
+                     filas = db.rawQuery("SELECT * FROM registro WHERE correo='" + correo + "'", null);
+                     Intent newIntent = new Intent(LoginActivity.this, MainActivity.class);
+                     newIntent.putExtra("nomTabla", "registro");
+                     newIntent.putExtra("correo", correo);
+                     startActivity(newIntent);
+                    finish();
+                 }
+                 else{
+                     Toast.makeText(LoginActivity.this, "Datos incorrectos", Toast.LENGTH_SHORT).show();
+                     et2.setText("");
+                 }
+             }
+         });
+    }
+
     public void iniciarSesion(View view){
-        String correo = et1.getText().toString();
-        String pass = et2.getText().toString();
+        correo = et1.getText().toString();
+        pass = et2.getText().toString();
 
         if(!correo.equals("") && !pass.equals("")) {
-            db = admin.getReadableDatabase();
-            filas = db.rawQuery("SELECT * FROM registro WHERE correo='" + correo + "'", null);
-            if ((filas.moveToFirst())) {
-                if(filas.getString(6).equals(pass)) {
-                    Intent newIntent = new Intent(this, MainActivity.class);
-                    newIntent.putExtra("nomTabla", "registro");
-                    newIntent.putExtra("correo", correo);
-                    startActivity(newIntent);
-                }
-                else {
-                    Toast.makeText(this, "Datos incorrectos", Toast.LENGTH_SHORT).show();
-                    et2.setText("");
-                }
+            login();
             }
-        }
         else {
             Toast.makeText(LoginActivity.this, "Ingrese sus datos completos", Toast.LENGTH_SHORT).show();
             et1.requestFocus();

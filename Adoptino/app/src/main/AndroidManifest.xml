@@ -2,40 +2,36 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.LUIS.ProyectoAndroid">
 
+    <uses-permission android:name="android.permission.CAMERA"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@android:drawable/alert_light_frame"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.HolaMundo">
+        <activity android:name=".AdoptarActivity"
+            android:label="Adopta"></activity>
+        <activity android:name=".ParaAdoptarActivity"
+            android:label="Da en Adopción"></activity>
         <activity
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".ListViewActivity"
-            android:exported="false" />
-        <activity
-            android:name=".EncuestaActivity"
+            android:name=".ReportadosActivity"
             android:exported="false"
-            android:label="@string/registro" />
-        <activity
-            android:name=".MarcaActivity"
-            android:exported="false" />
+            android:label="Perdidos"/>
         <activity
             android:name=".RegistroActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Registrate"/>
         <activity
             android:name=".MainActivity"
-            android:exported="false" />
+            android:exported="false"/>
         <activity
-            android:name=".CategoriaActivity"
+            android:name=".ReportarActivity"
             android:exported="false"
-            android:label="@string/categoria" />
-        <activity
-            android:name=".ProductoActivity"
-            android:exported="false"
-            android:label="@string/producto" />
+            android:label="¡Reporta!" />
         <activity
             android:name=".SplashScreen"
             android:exported="true">

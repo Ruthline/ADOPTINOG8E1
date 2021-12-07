@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ParaAdoptarActivity">
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="@color/amarilloAdoptino"
+      android:gravity="center"
+      android:orientation="vertical"
+      android:paddingStart="20dp"
+      android:paddingEnd="20dp">
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="@string/volver"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:visibility="gone" />
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/negroAdoptino">
+
+      <ImageView
+          android:id="@+id/picture"
+          android:layout_width="125dp"
+          android:layout_height="115dp"
+          android:contentDescription="@string/img"
+          android:scaleType="center"
+          android:scrollbarThumbHorizontal="?android:attr/scrollbarThumbHorizontal"
+          android:scrollbarThumbVertical="?android:attr/scrollbarThumbVertical"
+          app:srcCompat="@android:drawable/ic_menu_camera" />
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:orientation="vertical">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+          <com.google.android.material.textfield.TextInputEditText
+              android:id="@+id/nombremascotaadopta"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:backgroundTint="@color/negroAdoptino"
+              android:hint="@string/nombreMascota"
+              android:textColor="@color/white"
+              android:textColorHint="@color/white" />
+
+          <com.google.android.material.textfield.TextInputLayout
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/fundacion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/negroAdoptino"
+                android:hint="@string/fundacion"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white" />
+          </com.google.android.material.textfield.TextInputLayout>
+        </com.google.android.material.textfield.TextInputLayout>
+      </LinearLayout>
+
+    </TableRow>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="185dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginBottom="10dp"
+        app:cardBackgroundColor="#12F8F4F4"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="2dp">
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="180dp"
+          android:background="@color/negroAdoptino"
+          android:gravity="center"
+          android:orientation="vertical"
+          android:paddingStart="10dp"
+          android:paddingEnd="10dp">
+
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="@string/ciudadMin"
+            android:textColor="@color/naranjaAdoptino"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/ciudaadopta"
+            android:layout_width="246dp"
+            android:layout_height="48dp"
+            android:ems="10"
+            android:hint="@string/ingreseCiudadMin"
+            android:inputType="text"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="15dp"
+            android:text="@string/telefonoDeContacto"
+            android:textColor="@color/naranjaAdoptino"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/telefonoadopta"
+            android:layout_width="246dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/ingreseTelefono"
+            android:inputType="phone"
+            android:minHeight="48dp"
+            android:textColorHint="@color/white"
+            android:textSize="16sp" />
+
+      </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        app:cardBackgroundColor="#12F8F4F4"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="2dp">
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="150dp"
+          android:background="@color/negroAdoptino"
+          android:gravity="center"
+          android:orientation="vertical"
+          android:paddingStart="10dp"
+          android:paddingEnd="10dp">
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="@string/descripcionMascota"
+            android:textColor="@color/naranjaAdoptino"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/descripcionadopta"
+            android:layout_width="246dp"
+            android:layout_height="100dp"
+            android:ems="10"
+            android:hint="@string/ingreseDescripcionMascota"
+            android:inputType="textEmailAddress"
+            android:textColorHint="@color/white"
+            android:textSize="16sp" />
+
+      </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+    <Button
+        android:id="@+id/buttonguardaradopta"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="350dp"
+        android:backgroundTint="@color/naranjaAdoptino"
+        android:gravity="center"
+        android:onClick="agregarAdoptar"
+        android:text="@string/guardar"
+        android:textAlignment="center" />
+
+  </LinearLayout>
+
+
+</ScrollView>

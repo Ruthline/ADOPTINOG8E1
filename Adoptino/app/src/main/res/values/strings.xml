@@ -2,6 +2,36 @@
     <string name="app_name">Adoptino</string>
     <string name="categoria">Categoría</string>
     <string name="previous">Previous</string>
-    <string name="producto">Producto</string>
+    <string name="producto">Reportar</string>
     <string name="registro">Registro</string>
+    <string name="img">img</string>
+    <string name="correo">Correo</string>
+    <string name="contraseña">Contraseña</string>
+    <string name="iniciarSesion">Iniciar Sesión</string>
+    <string name="registrarse">Registrarse</string>
+    <string name="slogan">Encuentra el AMOR VERDADERO \n Un peludito ESTÁ ESPERANDO por tí</string>
+    <string name="bienvenida">¡Bienvenida!</string>
+    <string name="adopta">ADOPTA</string>
+    <string name="perdidos">PERDIDOS</string>
+    <string name="reporta">¡REPORTA!</string>
+    <string name="daEnAdopcion">DA EN ADOPCIÓN</string>
+    <string name="ciudad">CIUDAD</string>
+    <string name="ciudadMin">Ciudad</string>
+    <string name="ingreseCiudadMin">Ingrese la ciudad</string>
+    <string name="telefonoDeContacto">Teléfono de contacto</string>
+    <string name="ingreseTelefono">Ingrese su teléfono</string>
+    <string name="descripcionMascota">Descripción de la mascota</string>
+    <string name="ingreseDescripcionMascota">Ingrese la descripción</string>
+    <string name="guardar">Guardar</string>
+    <string name="volver">Volver</string>
+    <string name="edad">EDAD</string>
+    <string name="nombreMascota">Nombre mascota</string>
+    <string name="nombreDueño">Nombre dueño</string>
+    <string name="fechaDePerdida">Fecha de perdida</string>
+    <string name="ingreseFechaDePerdida">Ingrese la fecha de perdida</string>
+    <string name="fundacion">Fundación</string>
+    <string name="zonaDePerdida">Zona de perdida</string>
+    <string name="ingreseZonaDePerdida">Ingrese la zona donde ocurrió la perdida</string>
+
+
 </resources>

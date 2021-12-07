@@ -1,5 +1,6 @@
 package com.LUIS.ProyectoAndroid;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,19 +17,37 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.ktx.Firebase;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class RegistroActivity extends AppCompatActivity {
 
     private TextInputEditText ti1, ti2;
     private EditText et1, et2, et3, et4;
-
     private MyDBSQLiteHelper admin;
     private SQLiteDatabase db;
     private ContentValues cv;
     private Cursor filas;
+
+    private String nom = "";
+    private String ape = "";
+    private String fecha = "";
+    private String telf = "";
+    private String correo = "";
+    private String contra = "";
+
+    FirebaseAuth fa;
+    DatabaseReference df;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +59,8 @@ public class RegistroActivity extends AppCompatActivity {
         et2 = findViewById(R.id.editTextPhone2);
         et3 = findViewById(R.id.editTextTextEmailAddress2);
         et4 = findViewById(R.id.editTextTextPassword2);
+        fa = FirebaseAuth.getInstance();
+        df = FirebaseDatabase.getInstance().getReference();
         admin = new MyDBSQLiteHelper(this, vars.nomDB , null, vars.version);
 
     }
@@ -55,15 +76,19 @@ public class RegistroActivity extends AppCompatActivity {
 
     public void agregarDatos(View view) {
 
-        String nom = ti1.getText().toString();
-        String ape = ti2.getText().toString();
-        String fecha = et1.getText().toString();
-        String telf = et2.getText().toString();
-        String correo = et3.getText().toString();
-        String contra = et4.getText().toString();
+        nom = ti1.getText().toString();
+         ape = ti2.getText().toString();
+         fecha = et1.getText().toString();
+         telf = et2.getText().toString();
+        correo = et3.getText().toString();
+         contra = et4.getText().toString();
 
         if (!nom.equals("") && !ti1.equals("") &&
                 !ti2.equals("") && !et1.equals("") && !et2.equals("") && !et3.equals("") && !et3.equals("")) {
+            if(contra.length()<6){
+                Toast.makeText(RegistroActivity.this, "La contraseña debe tener 6 caracteres", Toast.LENGTH_SHORT).show();
+            }else{
+          registrar();
             db = admin.getWritableDatabase();
             cv = new ContentValues();
             cv.put("nombre", nom);
@@ -84,7 +109,7 @@ public class RegistroActivity extends AppCompatActivity {
             } else
                 Toast.makeText(this, "El registro no se pudo almacenar", Toast.LENGTH_SHORT).show();
             db.close();
-        }
+        }}
         else{
             Toast.makeText(this, "Por favor, ingrese todos los datos", Toast.LENGTH_SHORT).show();
         }
@@ -147,5 +172,26 @@ public class RegistroActivity extends AppCompatActivity {
         }
         else
             Toast.makeText(this, "Por favor, ingrese el nombre del producto", Toast.LENGTH_SHORT).show();
+    }
+    private void registrar(){
+        fa.createUserWithEmailAndPassword(correo, contra).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful()){
+
+                    String id = fa.getCurrentUser().getUid();
+                    Map<String,Object> map = new HashMap<>();
+                    map.put("name",nom);
+                    map.put("lastnname",ape);
+                    map.put("telefono",telf);
+                    map.put("correo",correo);
+                    map.put("password",contra);
+                   df.child("users").child(id).setValue(map);
+                }
+                else{
+
+                }
+            }
+        });
     }
 }

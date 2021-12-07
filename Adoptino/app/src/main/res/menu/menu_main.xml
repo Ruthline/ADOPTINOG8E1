@@ -3,11 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/mnu_producto"
-        android:icon="@drawable/ic_prdocuto"
+        android:id="@+id/mnu_marca"
+        android:icon="@drawable/adoptino"
         android:title="@string/producto"
         app:showAsAction="always" />
-    <item
-        android:id="@+id/mnu_categoria"
-        android:title="@string/categoria" />
 </menu>

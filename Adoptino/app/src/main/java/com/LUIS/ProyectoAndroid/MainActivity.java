@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,9 +16,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,9 +26,9 @@ public class MainActivity extends AppCompatActivity {
     private MyDBSQLiteHelper admin;
     private SQLiteDatabase db;
     private Cursor filas;
-
+ private FirebaseAuth fa;
     public void goToActivityProducto(View view) {
-        Intent newIntent = new Intent(this, ProductoActivity.class);
+        Intent newIntent = new Intent(this, ReportarActivity.class);
         newIntent.putExtra("msg", "Hola");
         newIntent.putExtra("year", 2021);
         newIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -39,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+ fa = FirebaseAuth.getInstance();
 //        Toast.makeText(this, "Método onCreate()", Toast.LENGTH_LONG).show();
         lv = findViewById(R.id.listaperso);
 
@@ -75,24 +75,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public boolean onOptionsItemSelected(MenuItem menuItem) {
-        int id = menuItem.getItemId();
 
-        if(id == R.id.mnu_producto) {
-            Intent newIntent = new Intent(this, ProductoActivity.class);
-            newIntent.putExtra("msg", "Hola MinTIC");
-            newIntent.putExtra("year", 2021);
-            newIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(newIntent);
-        }
-        else if(id == R.id.mnu_categoria) {
-            Intent newIntent = new Intent(this, CategoriaActivity.class);
-            newIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(newIntent);
-        }
-
-        return super.onOptionsItemSelected(menuItem);
-    }
 
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if(keyCode == KeyEvent.KEYCODE_BACK) {
@@ -104,7 +87,8 @@ public class MainActivity extends AppCompatActivity {
                     .setPositiveButton("Si", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            Intent newIntent = new Intent(getApplicationContext(), LoginActivity.class);
+  fa.signOut();                            
+Intent newIntent = new Intent(getApplicationContext(), LoginActivity.class);
                             startActivity(newIntent);
                             finish();
                         }
@@ -112,5 +96,25 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
         return super.onKeyDown(keyCode, event);
+    }
+
+    public void btnreportar(View view){
+        Intent newIntent= new Intent(this,ReportarActivity.class);
+        startActivity(newIntent);
+    }
+
+    public void btnreportados(View view){
+        Intent newIntent= new Intent(this,ReportadosActivity.class);
+        startActivity(newIntent);
+    }
+
+    public void btnparaadoptar(View view){
+        Intent newIntent= new Intent(this,ParaAdoptarActivity.class);
+        startActivity(newIntent);
+    }
+
+    public void btnadoptar(View view){
+        Intent newIntent= new Intent(this,AdoptarActivity.class);
+        startActivity(newIntent);
     }
 }

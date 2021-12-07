@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/amarilloAdoptino"
+    tools:context=".ReportarActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp">
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#E91E63"
+            android:onClick="goToActivityMain"
+            android:text="@string/volver"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@color/negroAdoptino">
+
+            <ImageButton
+                android:id="@+id/btnOpenCamera"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/img"
+                android:scaleType="centerInside"
+                android:src="@android:drawable/ic_menu_camera" />
+            // android:src="@drawable/ic_camera"
+
+
+            <ImageView
+                android:id="@+id/picture"
+                android:layout_width="125dp"
+                android:layout_height="115dp"
+                android:contentDescription="@string/img"
+                android:scaleType="centerInside"
+                app:srcCompat="@android:drawable/ic_menu_camera">
+
+            </ImageView>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/nombremascota"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:backgroundTint="@color/negroAdoptino"
+                        android:hint="@string/nombreMascota"
+                        android:textColor="@color/white" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/nombredueño"
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp"
+                            android:backgroundTint="@color/negroAdoptino"
+                            android:hint="@string/nombreDueño"
+                            android:textColor="@color/white" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+        </TableRow>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="185dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginBottom="10dp"
+            app:cardBackgroundColor="#12F8F4F4"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:background="@color/negroAdoptino"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView18"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:text="@string/fechaDePerdida"
+                    android:textColor="@color/naranjaAdoptino"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/editTextDate2"
+                    android:layout_width="246dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/ingreseFechaDePerdida"
+                    android:inputType="date"
+                    android:textColorHint="@color/white"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/textView19"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:text="@string/telefonoDeContacto"
+                    android:textColor="@color/naranjaAdoptino"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/editTextPhone2"
+                    android:layout_width="246dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/ingreseTelefono"
+                    android:inputType="phone"
+                    android:textColorHint="@color/white"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            app:cardBackgroundColor="#12F8F4F4"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:background="@color/negroAdoptino"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView17"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:text="@string/descripcionMascota"
+                    android:textColor="@color/naranjaAdoptino"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/editTextdescripcion"
+                    android:layout_width="246dp"
+                    android:layout_height="100dp"
+                    android:ems="10"
+                    android:hint="@string/ingreseDescripcionMascota"
+                    android:inputType="textEmailAddress"
+                    android:textColorHint="@color/white"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/textView20"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:text="@string/zonaDePerdida"
+                    android:textColor="@color/naranjaAdoptino"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/editTextzona"
+                    android:layout_width="246dp"
+                    android:layout_height="100dp"
+                    android:ems="10"
+                    android:hint="@string/ingreseZonaDePerdida"
+                    android:inputType="text"
+                    android:textColorHint="@color/white"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+        <Button
+            android:id="@+id/buttonguardarreportar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="50dp"
+            android:backgroundTint="@color/naranjaAdoptino"
+            android:gravity="center"
+            android:onClick="agregarReporte"
+            android:text="@string/reporta"
+            android:textAlignment="center" />
+
+    </LinearLayout>
+
+
+</ScrollView>

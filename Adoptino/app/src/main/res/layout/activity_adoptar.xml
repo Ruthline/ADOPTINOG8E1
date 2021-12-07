@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/amarilloAdoptino">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:context=".AdoptarActivity"><![CDATA[
+
+
+
+
+            />
+
+
+
+
+
+
+
+        ]]>
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="120dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="15dp"
+            android:backgroundTint="@color/violetaAdoptino"
+            android:text="@string/ciudad"
+            android:textColor="@color/white" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="match_parent"
+            android:layout_height="411dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/negroAdoptino"
+            android:contentDescription="@string/img"
+            android:scaleType="centerInside"
+            android:src="@drawable/simona" />
+
+        <ListView
+            android:id="@+id/listaadopta"
+            style="@style/Widget.AppCompat.Light.ListView.DropDown"
+            android:layout_width="match_parent"
+            android:layout_height="177dp"
+            android:layout_margin="10dp"
+            android:layout_marginTop="25dp">
+
+        </ListView>
+
+
+    </LinearLayout>
+</ScrollView>
